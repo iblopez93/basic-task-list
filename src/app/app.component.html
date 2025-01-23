@@ -171,10 +171,12 @@
 
 <main class="main">
   <div class="content">
-    <div div (click)="toggleEditor()">
+    <div *ngIf="!showEditor" (click)="toggleEditor()">
       <fa-icon class="icon-square-plus" [icon]="faSquarePlus"></fa-icon> Type to add new task
+    </div>
+  <div>
+    <app-task-editor *ngIf="showEditor" (focusout)="toggleEditor()"></app-task-editor>
   </div>
-
   </div>
 </main>
 
